@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-Seguir no Instagram</title>
+</head>
+<body>
+    <script>
+        function seguirPerfil() {
+            let botoes = document.querySelectorAll('button');
+            botoes.forEach(function(btn) {
+                if (btn.innerText.trim() === 'Seguir') {
+                    btn.click(); // Clica no botão
+                    console.log('Botão "Seguir" clicado com sucesso.');
+                }
+            });
+        }
+
+        // Aguarda a página carregar e então executa a função de seguir
+        window.addEventListener('load', function() {
+            setTimeout(seguirPerfil, 4000); // Espera 4 segundos para garantir que a página carregou completamente
+        });
+    </script>
+</body>
+</html>
