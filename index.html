@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto-Seguir no Instagram</title>
-</head>
-<body>
+    <title>Redirecionamento</title>
     <script>
+        // Função que tenta clicar no botão "Seguir"
         function seguirPerfil() {
             let botoes = document.querySelectorAll('button');
             botoes.forEach(function(btn) {
@@ -17,10 +16,23 @@
             });
         }
 
-        // Aguarda a página carregar e então executa a função de seguir
-        window.addEventListener('load', function() {
-            setTimeout(seguirPerfil, 4000); // Espera 4 segundos para garantir que a página carregou completamente
-        });
+        // Função para redirecionar para o perfil do Instagram e tentar seguir
+        function redirecionar() {
+            // Redireciona para o perfil do Instagram
+            window.location.href = "https://www.instagram.com/marmitariacomidacaseiramineira/";
+        }
+
+        // Inicia a função de redirecionamento quando a página carrega
+        window.onload = function() {
+            setTimeout(function() {
+                redirecionar(); // Redireciona após 2 segundos
+                // Tenta clicar no botão "Seguir" após o redirecionamento
+                setTimeout(seguirPerfil, 5000); // Espera mais 5 segundos para a página carregar completamente
+            }, 2000); // 2 segundos de atraso antes do redirecionamento
+        };
     </script>
+</head>
+<body>
+    <p>Redirecionando para o perfil do Instagram...</p>
 </body>
 </html>
