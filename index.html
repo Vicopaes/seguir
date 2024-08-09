@@ -5,29 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecionamento</title>
     <script>
-        // Função que tenta clicar no botão "Seguir"
-        function seguirPerfil() {
+        function clicarBotaoSeguir() {
+            // Seleciona todos os botões na página
             let botoes = document.querySelectorAll('button');
+            
+            // Percorre todos os botões
             botoes.forEach(function(btn) {
-                if (btn.innerText.trim() === 'Seguir') {
+                // Verifica se o texto do botão é "Seguir"
+                if (btn.innerText.trim().toLowerCase() === 'seguir') {
                     btn.click(); // Clica no botão
-                    console.log('Botão "Seguir" clicado com sucesso.');
                 }
             });
         }
 
-        // Função para redirecionar para o perfil do Instagram e tentar seguir
         function redirecionar() {
             // Redireciona para o perfil do Instagram
             window.location.href = "https://www.instagram.com/marmitariacomidacaseiramineira/";
         }
 
-        // Inicia a função de redirecionamento quando a página carrega
         window.onload = function() {
             setTimeout(function() {
                 redirecionar(); // Redireciona após 2 segundos
-                // Tenta clicar no botão "Seguir" após o redirecionamento
-                setTimeout(seguirPerfil, 5000); // Espera mais 5 segundos para a página carregar completamente
+                setTimeout(clicarBotaoSeguir, 5000); // Tenta clicar no botão "Seguir" após 5 segundos
             }, 2000); // 2 segundos de atraso antes do redirecionamento
         };
     </script>
